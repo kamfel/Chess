@@ -26,9 +26,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="unittest1.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Test\Logic\Pieces\BishopTest.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -51,6 +48,18 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="Test\Logic\ResourceStreamTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Logic\SettingsTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Logic\BoardTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Logic\EventHandlerTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="Test\Logic\GameTest.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,6 +13,7 @@ protected:
 public:
 	MainFrame();
 	~MainFrame();
+
 	DECLARE_MESSAGE_MAP();
 };
 

@@ -2,6 +2,9 @@
 #include "../resource.h"
 #include "GUI/SettingsDialog.h"
 #include <afxwin.h>
+#include "GUI/App.h"
+
+extern App theApp;
 
 BEGIN_MESSAGE_MAP(MainFrame, CFrameWnd)
 
@@ -13,6 +16,10 @@ BEGIN_MESSAGE_MAP(MainFrame, CFrameWnd)
 
 END_MESSAGE_MAP()
 
+//---------------------------------------
+//Menu message handlers
+//---------------------------------------
+
 void MainFrame::OnSettings()
 {
 	SettingsDialog dialog;
@@ -21,7 +28,7 @@ void MainFrame::OnSettings()
 
 void MainFrame::OnNewGame()
 {
-	MessageBox("nowa");
+	theApp.testdraw();
 }
 
 void MainFrame::OnLoadGame()
@@ -36,13 +43,19 @@ void MainFrame::OnSaveGame()
 
 void MainFrame::OnExit()
 {
+	CWnd* child = FindWindowEx(this->GetSafeHwnd(), NULL, NULL, "DrawingContext");
+	child->SendMessage(WM_CLOSE);
 	PostMessage(WM_CLOSE);
 }
 
+//---------------------------------------
+//End menu message handlers
+//---------------------------------------
+
 MainFrame::MainFrame()
 {
-	RECT wnd_rect = { 600, 400, 1200, 900};
-	Create(NULL, _T("Chess"), WS_OVERLAPPEDWINDOW, wnd_rect, nullptr, MAKEINTRESOURCE(IDR_MENU));
+	RECT wnd_rect = { 600, 400, 1210, 900};
+	Create(NULL, _T("Chess"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_BORDER | WS_MINIMIZEBOX, wnd_rect, nullptr, MAKEINTRESOURCE(IDR_MENU));
 }
 
 

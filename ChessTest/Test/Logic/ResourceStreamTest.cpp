@@ -20,14 +20,5 @@ namespace ChessTest
 			Assert::IsFalse(rs.LoadResourceById(id, type));
 		}
 
-		TEST_METHOD(LoadResourceById_InvalidArgsShouldBeFalse)
-		{
-			unsigned id = 0;
-			const char* type = "TYPE";
-
-			ResourceStream rs;
-
-			Assert::IsFalse(rs.LoadResourceById(id, type));
-		}
 	};
 }

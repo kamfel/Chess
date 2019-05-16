@@ -1,17 +1,16 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
+#include "Definitions.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace ChessTest
-{		
-	TEST_CLASS(Piece)
+{
+	TEST_CLASS(BoardTest)
 	{
-	private:
-
 	public:
-		
-		TEST_METHOD(Is)
+
+		TEST_METHOD(TestMethod1)
 		{
 			// TODO: W tym miejscu dodaj kod testowy
 		}

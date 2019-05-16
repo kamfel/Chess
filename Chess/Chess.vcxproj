@@ -23,6 +23,7 @@
     <ProjectGuid>{E74582D4-DD15-4F78-9BC6-FD856E608A30}</ProjectGuid>
     <RootNamespace>Chess</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>Chess</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -30,6 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -37,6 +39,7 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -69,7 +72,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Linkage-sfml_system>
+    </Linkage-sfml_system>
+    <Linkage-sfml_window>
+    </Linkage-sfml_window>
+    <RuntimeLibrary>
+    </RuntimeLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Linkage-sfml_system>
+    </Linkage-sfml_system>
+    <Linkage-sfml_window>
+    </Linkage-sfml_window>
+    <RuntimeLibrary>
+    </RuntimeLibrary>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -79,6 +97,11 @@
       <AdditionalIncludeDirectories>D:\repos\Chess\Chess\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <BrowseInformation>true</BrowseInformation>
       <CallingConvention>Cdecl</CallingConvention>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
     </ClCompile>
     <Bscmake>
       <PreserveSbr>true</PreserveSbr>
@@ -86,6 +109,11 @@
     <Link>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
+      <NoEntryPoint>false</NoEntryPoint>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+      <IgnoreSpecificDefaultLibraries>D:\repos\Chess\packages\sfml_system.2.5.1\build\native\lib\Win32\v141\Debug\sfml-main-d.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -113,12 +141,18 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\repos\Chess\Chess\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <CallingConvention>Cdecl</CallingConvention>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <UndefinePreprocessorDefinitions>
+      </UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <EntryPointSymbol>
       </EntryPointSymbol>
+      <SubSystem>Windows</SubSystem>
+      <NoEntryPoint>false</NoEntryPoint>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -143,14 +177,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUI\App.cpp" />
+    <ClCompile Include="src\GUI\MainFrame.cpp" />
+    <ClCompile Include="src\GUI\SettingsDialog.cpp" />
     <ClCompile Include="src\Logic\ResourceStream.cpp" />
     <ClCompile Include="src\Logic\EventHandler.cpp" />
     <ClCompile Include="src\Logic\Settings.cpp" />
     <ClCompile Include="src\Logic\Board.cpp" />
     <ClCompile Include="src\Logic\Game.cpp" />
-    <ClCompile Include="src\GUI\GUIBase.cpp" />
-    <ClCompile Include="src\GUI\Label.cpp" />
-    <ClCompile Include="src\GUI\Button.cpp" />
     <ClCompile Include="src\Logic\Pieces\Bishop.cpp" />
     <ClCompile Include="src\Logic\Pieces\King.cpp" />
     <ClCompile Include="src\Logic\Pieces\Knight.cpp" />
@@ -158,14 +192,14 @@
     <ClCompile Include="src\Logic\Pieces\Queen.cpp" />
     <ClCompile Include="src\Logic\Pieces\Rook.cpp" />
     <ClCompile Include="src\Logic\Pieces\Piece.cpp" />
-    <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\GUI\App.h" />
+    <ClInclude Include="include\GUI\MainFrame.h" />
+    <ClInclude Include="include\GUI\SettingsDialog.h" />
     <ClInclude Include="include\Logic\EventHandler.h" />
     <ClInclude Include="include\Logic\Board.h" />
     <ClInclude Include="include\Logic\Game.h" />
-    <ClInclude Include="include\GUI\GUIBase.h" />
-    <ClInclude Include="include\GUI\Button.h" />
     <ClInclude Include="include\Logic\Pieces\Bishop.h" />
     <ClInclude Include="include\Logic\Pieces\Piece.h" />
     <ClInclude Include="include\Logic\Pieces\King.h" />
@@ -173,10 +207,8 @@
     <ClInclude Include="include\Logic\Pieces\Pawn.h" />
     <ClInclude Include="include\Logic\Pieces\Queen.h" />
     <ClInclude Include="include\Logic\Pieces\Rook.h" />
-    <ClInclude Include="include\GUI\Label.h" />
     <ClInclude Include="include\Logic\Settings.h" />
     <ClInclude Include="include\Logic\ResourceStream.h" />
-    <ClInclude Include="include\resource.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -196,10 +228,8 @@
     <Import Project="..\packages\sfml_window.2.5.1\build\native\sfml_window.targets" Condition="Exists('..\packages\sfml_window.2.5.1\build\native\sfml_window.targets')" />
     <Import Project="..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets" Condition="Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" />
     <Import Project="..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets" Condition="Exists('..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets')" />
-    <Import Project="..\packages\libpng.redist.1.6.28.1\build\native\libpng.redist.targets" Condition="Exists('..\packages\libpng.redist.1.6.28.1\build\native\libpng.redist.targets')" />
     <Import Project="..\packages\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('..\packages\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.targets')" />
     <Import Project="..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />
-    <Import Project="..\packages\libpng.1.6.28.1\build\native\libpng.targets" Condition="Exists('..\packages\libpng.1.6.28.1\build\native\libpng.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -211,9 +241,7 @@
     <Error Condition="!Exists('..\packages\sfml_window.2.5.1\build\native\sfml_window.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_window.2.5.1\build\native\sfml_window.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets'))" />
-    <Error Condition="!Exists('..\packages\libpng.redist.1.6.28.1\build\native\libpng.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libpng.redist.1.6.28.1\build\native\libpng.redist.targets'))" />
     <Error Condition="!Exists('..\packages\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v120.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
     <Error Condition="!Exists('..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
-    <Error Condition="!Exists('..\packages\libpng.1.6.28.1\build\native\libpng.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\libpng.1.6.28.1\build\native\libpng.targets'))" />
   </Target>
 </Project>

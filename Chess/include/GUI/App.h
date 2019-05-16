@@ -1,8 +1,6 @@
 #pragma once
-#pragma comment(linker,"\"/manifestdependency:type='win32' \
-name='Microsoft.Windows.Common-Controls' version='6.0.0.0' \
-processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
-
+#include "GUI/MainFrame.h"
+#include "Logic/Game.h"
 #include <afxwin.h>
 
 class App : 
@@ -10,8 +8,12 @@ class App :
 {
 private:
 	MainFrame* m_pframe;
+	CWnd* m_pgamewnd;
+	Game* m_pgame;
 public:
+	App();
 	~App();
 
 	BOOL InitInstance();
+	void testdraw() { m_pgame->Run(); }
 };

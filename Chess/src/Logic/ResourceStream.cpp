@@ -1,6 +1,5 @@
 #include "Logic\ResourceStream.h"
-#include <Windows.h>
-#include "resource.h"
+#include <afxwin.h>
 
 
 ResourceStream::ResourceStream()

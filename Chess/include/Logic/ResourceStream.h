@@ -1,6 +1,5 @@
 #pragma once
 #include "SFML\System\InputStream.hpp"
-#include <memory>
 class ResourceStream :
 	public sf::InputStream
 {
@@ -16,9 +15,9 @@ public:
 
 	bool LoadResourceById(unsigned id, const char* type);
 
-	long long read(void* data, long long size);
-	long long seek(long long position);
-	long long tell();
+	long long read(void* data, long long size) override;
+	long long seek(long long position) override;
+	long long tell() override;
 
-	long long getSize();
+	long long getSize() override;
 };

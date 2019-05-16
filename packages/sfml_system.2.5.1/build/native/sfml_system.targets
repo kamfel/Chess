@@ -53,7 +53,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Label="Win32 and v141 and Debug" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v141' And ( $(Configuration.ToLower().IndexOf('debug')) &gt; -1 )">
     <Link>
-      <AdditionalDependencies>$(MSBuildThisFileDirectory)../..//build/native/lib/Win32\v141\Debug\sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Label="Win32 and v141 and Release" Condition="'$(Platform.ToLower())' == 'win32' And '$(PlatformToolset.ToLower())' == 'v141' And ( $(Configuration.ToLower().IndexOf('debug')) == -1 )">
