@@ -65,3 +65,8 @@ long long ResourceStream::getSize()
 {
 	return m_size;
 }
+
+bool ResourceStream::is_open()
+{
+	return m_size != -1;
+}

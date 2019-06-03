@@ -14,6 +14,7 @@ private:
 	Board m_board;
 	WHOHASMOVE m_has_move;
 	bool m_is_check;
+	bool m_gamerun;
 
 	void GameLoop();
 public:

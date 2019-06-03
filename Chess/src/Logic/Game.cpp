@@ -1,15 +1,19 @@
 #include "Logic/Game.h"
 #include "Logic/Settings.h"
 #include "Logic/Board.h"
-#include "Logic/EventHandler.h"
 #include <string>
+#include "Logic/EventHandler.h"
 #include "SFML/System.hpp"
-#include <thread>
 #include "SFML/Graphics/RenderWindow.hpp"
+#include "Logic\GraphicsLoader.h"
+#include "Logic\ResourceStream.h"
+#include "../resource.h"
 
 void Game::GameLoop()
 {
-	while()
+	while (m_gamerun) {
+
+	}
 }
 
 Game::Game()
@@ -30,6 +34,8 @@ Game::Game(sf::WindowHandle& wndhandle)
 	m_is_check(false)
 {
 	m_main_window.setFramerateLimit(60);
+	ResourceStream r_stream(IDB_PIECES, "PNG");
+	GraphicsLoader::LoadTexturesFromStream(r_stream);
 }
 
 
@@ -39,7 +45,13 @@ Game::~Game()
 
 void Game::Run()
 {
-	
+	m_gamerun = true;
+	EventHandler handler(m_main_window);
+}
+
+void Game::Stop()
+{
+	m_gamerun = false;
 }
 
 void Game::StartNewGame()
