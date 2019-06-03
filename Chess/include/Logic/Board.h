@@ -5,7 +5,7 @@
 class Piece;
 
 class Board : 
-	public sf::Sprite
+	protected sf::Sprite
 {
 private:
 

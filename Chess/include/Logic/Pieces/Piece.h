@@ -16,8 +16,8 @@ protected:
 
 	bool IsMoveValid(const sf::Vector2u pos) const;
 
-	virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForWhite(const Board& board) = 0;
-	virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForBlack(const Board& board) = 0;
+		virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForWhite(const Board& board) = 0;
+		virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForBlack(const Board& board) = 0;
 
 public:
 
