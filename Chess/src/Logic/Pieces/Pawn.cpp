@@ -11,6 +11,12 @@ Pawn::~Pawn()
 {
 }
 
+const std::vector<sf::Vector2u>& Pawn::GeneratePossibleMoves(const Board & board)
+{
+	if (IsWhite()) return GeneratePossibleMovesForWhite(board);
+	else return GeneratePossibleMovesForBlack(board);
+}
+
 std::vector<sf::Vector2u>& Pawn::GeneratePossibleMovesForWhite(const Board& board)
 {
 	m_possible_moves.clear();

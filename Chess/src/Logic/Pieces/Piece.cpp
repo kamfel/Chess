@@ -30,24 +30,3 @@ bool Piece::Move(const sf::Vector2u& pos)
 
 	return true;
 }
-
-const std::vector<sf::Vector2u>& Piece::GeneratePossibleMoves(const Board & board)
-{
-	if (IsWhite()) return GeneratePossibleMovesForWhite(board);
-	else return GeneratePossibleMovesForBlack(board);
-}
-
-bool Piece::IsAtPos(const sf::Vector2u & pos)
-{
-	return m_pos == pos;
-}
-
-bool Piece::IsBlack() const
-{
-	return !m_color;
-}
-
-bool Piece::IsWhite() const
-{
-	return m_color;
-}

@@ -16,6 +16,10 @@ public:
 
 	void ApplyChanges(const Settings& settings);
 
+	bool GetPieceSize() const { return m_piece_size; }
+	bool IsHighlightOn() const { return m_highlight; }
+	sf::Time GetTimeAmountForPlayers() const { return m_time; }
+
 	friend SettingsDialog;
 };
 
