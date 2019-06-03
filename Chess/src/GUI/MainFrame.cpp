@@ -44,7 +44,7 @@ void MainFrame::OnSaveGame()
 void MainFrame::OnExit()
 {
 	CWnd* child = FindWindowEx(this->GetSafeHwnd(), NULL, NULL, "DrawingContext");
-	child->DestroyWindow();
+	child->SendMessage(WM_CLOSE);
 	PostMessage(WM_CLOSE);
 }
 
