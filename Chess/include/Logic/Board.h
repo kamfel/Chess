@@ -14,16 +14,22 @@ private:
 
 protected:
 
-	Piece* GetPieceOnField(const sf::Vector2u pos) const;
+	Piece* GetPieceOnField(const sf::Vector2u& pos) const;
 
 public:
 
 	Board();
 	virtual ~Board();
 
-	bool IsFieldEmpty(const sf::Vector2u pos) const;
-	bool IsBlackPieceOnField(const sf::Vector2u pos) const;
-	bool IsWhitePieceOnField(const sf::Vector2u pos) const;
+	bool CheckForStalemate();
+	bool CheckForCheck();
+	bool CheckForMate();
+
+	bool IsFieldEmpty(const sf::Vector2u& pos) const;
+	bool IsBlackPieceOnField(const sf::Vector2u& pos) const;
+	bool IsWhitePieceOnField(const sf::Vector2u& pos) const;
+
+	bool IsFieldHighlighted(const sf::Vector2u& pos) const;
 
 	void SetPiecesOnStartingPos();
 
@@ -32,5 +38,7 @@ public:
 
 	static sf::Vector2f ConvertBoardXYtoDisplayXY(const sf::Vector2u& boardXY);
 	static sf::Vector2u ConvertDisplayXYtoBoardXy(const sf::Vector2f& displayXY);
+	
+	static bool AreDisplayXYWithinBoard(const sf::Vector2f& displayXY);
 };
 

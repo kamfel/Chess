@@ -13,11 +13,9 @@ protected:
 	std::vector<sf::Vector2u> m_possible_moves;
 	bool m_was_piece_moved = false;
 	bool m_color; //true - white, false - black
+	bool m_highlighted;
 
 	bool IsMoveValid(const sf::Vector2u pos) const;
-
-	virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForWhite(const Board& board) = 0;
-	virtual std::vector<sf::Vector2u>& GeneratePossibleMovesForBlack(const Board& board) = 0;
 
 public:
 
@@ -25,9 +23,15 @@ public:
 	virtual ~Piece();
 
 	bool Move(const sf::Vector2u& pos);
-	const std::vector<sf::Vector2u>& GeneratePossibleMoves(const Board& board);
+	virtual const std::vector<sf::Vector2u>& GeneratePossibleMoves(const Board& board) = 0;
 
-	bool IsAtPos(const sf::Vector2u& pos);
-	bool IsBlack() const;
-	bool IsWhite() const;
+	void Highlight() { m_highlighted = true; }
+	void Unhighlight() { m_highlighted = false; }
+
+	inline bool IsAtPos(const sf::Vector2u& pos) { return pos == m_pos; }
+	inline bool IsBlack() const { return !m_color; }
+	inline bool IsWhite() const { return m_color; }
+	inline bool IsHighlighted() const { return m_highlighted; }
+
+	void SetColor(bool color) { m_color = color; }
 };
