@@ -7,7 +7,6 @@ void EventHandler::HandleMouseButtonPressed(int x, int y)
 	if (!Board::AreDisplayXYWithinBoard(sf::Vector2f(x, y)))
 		return;
 
-	if ()
 }
 
 EventHandler::EventHandler(sf::Window& window)

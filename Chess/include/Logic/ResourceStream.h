@@ -20,4 +20,6 @@ public:
 	long long tell() override;
 
 	long long getSize() override;
+
+	bool is_open();
 };
