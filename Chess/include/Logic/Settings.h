@@ -5,21 +5,14 @@
 class Settings
 {
 private:
-	bool m_highlight = 0;
-	bool m_piece_size = 0;
 	bool m_time_on = 0;
 	sf::Time m_time = sf::Time::Zero;
 public:
 	Settings();
-	Settings(bool highlight, bool piece_size, bool time_on, sf::Time time);
+	Settings(bool time_on, long long time_in_seconds);
 	~Settings();
 
-	void ApplyChanges(const Settings& settings);
-
-	bool GetPieceSize() const { return m_piece_size; }
-	bool IsHighlightOn() const { return m_highlight; }
+	bool IsTimeOn() const { return m_time_on; }
 	sf::Time GetTimeAmountForPlayers() const { return m_time; }
-
-	friend SettingsDialog;
 };
 

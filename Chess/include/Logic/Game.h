@@ -3,33 +3,45 @@
 #include "Board.h"
 #include <string>
 #include "SFML/Graphics/RenderWindow.hpp"
+#include "GraphicsHolder.h"
 
-enum WHOHASMOVE { NONE = 0, WHITE, BLACK};
+enum COLOUR;
 
 class Game
 {
 private:
-	sf::RenderWindow m_main_window;
-	Settings m_settings;
-	Board m_board;
-	WHOHASMOVE m_has_move;
-	bool m_is_check;
-	bool m_gamerun;
 
-	void GameLoop();
+	//Conatiner holding textures for the game
+	GraphicsHolder m_textures;
+
+	//Window which the game will render to
+	sf::RenderWindow m_main_window;
+
+	//Board containing information about the board and pieces
+	Board m_board;
+
+	//The player which has move
+	COLOUR m_has_move;
+
+	//True if previous move checked the player
+	bool m_is_check;
+
+	//Lock game when checkmate or stalemate
+	bool m_is_locked = false;
+
 public:
-	Game();
 	Game(sf::WindowHandle& wndhandle);
 	~Game();
 
-	void Run();
-	void Stop();
+	bool IsGameFinished() { return m_is_locked; }
 
+	//Starts a new game; previous state is discarded
 	void StartNewGame();
-	void LoadGame(const std::string& filepath);
-	void SaveGame(const std::string& filepath) const;
-	bool ApplySettings(const Settings& new_settings) const;
 
-	const Settings& GetCurrentSettings() const;
+	//Handles any events in the event queue of the window associated with the game
+	void CallEventHandler();
+
+	//Draws chess game to window associated with the game; also flips display buffers
+	void Draw();
 };
 

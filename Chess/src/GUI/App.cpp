@@ -9,6 +9,8 @@ processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #include "../resource.h"
 
 #include "GUI/App.h"
+#include "Definitions.h"
+#include "GUI/GameWnd.h"
 
 App theApp;
 
@@ -38,13 +40,12 @@ BOOL App::InitInstance()
 	if (!m_pframe) return FALSE;
 
 
-	m_pgamewnd = new CWnd();
-	m_pgamewnd->Create(_T("STATIC"), "DrawingContext", WS_CHILD | WS_VISIBLE, { 0, 0, 600, 450 }, m_pframe, 1000);
+	m_pgamewnd = new GameWnd();
+	m_pgamewnd->Create("#32769", "DrawingContext", WS_CHILD | WS_VISIBLE, { 0, 0, CHESS_MAIN_WINDOW_SIZE_X - 20, CHESS_MAIN_WINDOW_SIZE_Y - 40 }, m_pframe, 1000);
 
 	sf::WindowHandle wnd = m_pgamewnd->GetSafeHwnd();
 
 	m_pgame = new Game(wnd);
-	m_pgame->Run();
 
 	m_pMainWnd = m_pframe;
 	m_pframe->ShowWindow(SW_NORMAL);
@@ -52,4 +53,17 @@ BOOL App::InitInstance()
 	//---------------------------------
 
 	return TRUE;
+}
+
+BOOL App::OnIdle(LONG iCount)
+{
+	m_pgame->CallEventHandler();
+	m_pgame->Draw();
+
+	if (m_pgame->IsGameFinished() && m_finished) {
+		m_pframe->MessageBox("Koniec gry", "Koniec", MB_OK);
+		m_finished = false;
+	}
+
+	return CWinApp::OnIdle(iCount);
 }

@@ -27,9 +27,6 @@
     <ClCompile Include="src\Logic\Pieces\Knight.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\Logic\Pieces\Pawn.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="src\Logic\Pieces\Piece.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -48,19 +45,22 @@
     <ClCompile Include="src\Logic\ResourceStream.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\GUI\SettingsDialog.cpp">
+    <ClCompile Include="src\Logic\Game.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\GUI\MainFrame.cpp">
+    <ClCompile Include="src\Logic\GraphicsHolder.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Logic\Pieces\Pawn.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="src\GUI\App.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\Logic\GraphicsLoader.cpp">
+    <ClCompile Include="src\GUI\MainFrame.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\Logic\Game.cpp">
+    <ClCompile Include="src\GUI\GameWnd.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,21 +104,25 @@
     <ClInclude Include="resource.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="include\GUI\SettingsDialog.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="include\GUI\MainFrame.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="include\GUI\App.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="include\Logic\GraphicsLoader.h">
+    <ClInclude Include="include\Definitions.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Logic\GraphicsHolder.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GUI\GameWnd.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Chess.rc">
@@ -127,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="pieces.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="board.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

@@ -3,15 +3,13 @@
 #include "GUI/SettingsDialog.h"
 #include <afxwin.h>
 #include "GUI/App.h"
+#include "Definitions.h"
 
 extern App theApp;
 
 BEGIN_MESSAGE_MAP(MainFrame, CFrameWnd)
 
-	ON_COMMAND(ID_USTAWIENIA, OnSettings)
 	ON_COMMAND(ID_GRA_NOWAGRA, OnNewGame)
-	ON_COMMAND(ID_GRA_WCZYTAJ, OnLoadGame)
-	ON_COMMAND(ID_GRA_ZAPISZ, OnSaveGame)
 	ON_COMMAND(ID_GRA_ZAMKNIJ, OnExit)
 
 END_MESSAGE_MAP()
@@ -20,31 +18,13 @@ END_MESSAGE_MAP()
 //Menu message handlers
 //---------------------------------------
 
-void MainFrame::OnSettings()
-{
-	SettingsDialog dialog;
-	dialog.DoModal();
-}
-
 void MainFrame::OnNewGame()
 {
-	theApp.testdraw();
-}
-
-void MainFrame::OnLoadGame()
-{
-	MessageBox("wczytaj");
-}
-
-void MainFrame::OnSaveGame()
-{
-	MessageBox("zapisz");
+	theApp.GetGame()->StartNewGame();
 }
 
 void MainFrame::OnExit()
 {
-	CWnd* child = FindWindowEx(this->GetSafeHwnd(), NULL, NULL, "DrawingContext");
-	child->SendMessage(WM_CLOSE);
 	PostMessage(WM_CLOSE);
 }
 
@@ -54,7 +34,7 @@ void MainFrame::OnExit()
 
 MainFrame::MainFrame()
 {
-	RECT wnd_rect = { 600, 400, 1210, 900};
+	RECT wnd_rect = { 200, 200, 200 + CHESS_MAIN_WINDOW_SIZE_X, 200 + CHESS_MAIN_WINDOW_SIZE_Y};
 	Create(NULL, _T("Chess"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_BORDER | WS_MINIMIZEBOX, wnd_rect, nullptr, MAKEINTRESOURCE(IDR_MENU));
 }
 

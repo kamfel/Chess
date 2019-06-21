@@ -10,10 +10,15 @@ private:
 	MainFrame* m_pframe;
 	CWnd* m_pgamewnd;
 	Game* m_pgame;
+
+	bool m_finished;
 public:
 	App();
 	~App();
 
+	Game* GetGame() { return m_pgame; }
+
 	BOOL InitInstance();
-	void testdraw() { m_pgame->Run(); }
+
+	BOOL OnIdle(LONG iCount) override;
 };

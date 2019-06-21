@@ -113,14 +113,15 @@
       <NoEntryPoint>false</NoEntryPoint>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
-      <IgnoreSpecificDefaultLibraries>D:\repos\Chess\packages\sfml_system.2.5.1\build\native\lib\Win32\v141\Debug\sfml-main-d.lib</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>$(SolutionDir)packages\sfml_system.2.5.1\build\native\lib\Win32\v141\Debug\sfml-main-d.lib</IgnoreSpecificDefaultLibraries>
     </Link>
     <PreBuildEvent>
       <Command>
       </Command>
     </PreBuildEvent>
     <PreLinkEvent>
-      <Command>"$(VC_ExecutablePath_x86)\lib.exe" /out:"$(OutDir)$(ProjectName).lib" "$(IntermediateOutputPath)*.obj"</Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -177,11 +178,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GUI\GameWnd.cpp" />
     <ClCompile Include="src\Logic\Game.cpp" />
-    <ClCompile Include="src\Logic\GraphicsLoader.cpp" />
+    <ClCompile Include="src\Logic\GraphicsHolder.cpp" />
     <ClCompile Include="src\GUI\App.cpp" />
     <ClCompile Include="src\GUI\MainFrame.cpp" />
-    <ClCompile Include="src\GUI\SettingsDialog.cpp" />
     <ClCompile Include="src\Logic\ResourceStream.cpp" />
     <ClCompile Include="src\Logic\EventHandler.cpp" />
     <ClCompile Include="src\Logic\Settings.cpp" />
@@ -195,10 +196,11 @@
     <ClCompile Include="src\Logic\Pieces\Piece.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Logic\GraphicsLoader.h" />
+    <ClInclude Include="include\GUI\GameWnd.h" />
+    <ClInclude Include="include\Definitions.h" />
+    <ClInclude Include="include\Logic\GraphicsHolder.h" />
     <ClInclude Include="include\GUI\App.h" />
     <ClInclude Include="include\GUI\MainFrame.h" />
-    <ClInclude Include="include\GUI\SettingsDialog.h" />
     <ClInclude Include="include\Logic\EventHandler.h" />
     <ClInclude Include="include\Logic\Board.h" />
     <ClInclude Include="include\Logic\Game.h" />
@@ -214,12 +216,14 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Chess.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="board.png" />
     <Image Include="pieces.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

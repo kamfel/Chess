@@ -35,7 +35,7 @@ bool ResourceStream::LoadResourceById(unsigned id, const char* type)
 	return true;
 }
 
-long long ResourceStream::read(void * data, long long size)
+long long ResourceStream::read(void* data, long long size)
 {
 	if (!data) return -1;
 	
@@ -44,16 +44,18 @@ long long ResourceStream::read(void * data, long long size)
 
 	memcpy(data, &m_data[m_pos], static_cast<size_t>(bytes_to_copy));
 
+	m_pos += bytes_to_copy;
+
 	return bytes_to_copy;
 }
 
 long long ResourceStream::seek(long long position)
 {
 	if (position < 0) return -1;
-	if (position >= m_size) return 1;
+	if (position >= m_size) return -1;
 
 	m_pos = position;
-	return 0;
+	return m_pos;
 }
 
 long long ResourceStream::tell()
@@ -63,6 +65,7 @@ long long ResourceStream::tell()
 
 long long ResourceStream::getSize()
 {
+	if (m_pos = -1) return -1;
 	return m_size;
 }
 

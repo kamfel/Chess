@@ -3,17 +3,22 @@
 class Pawn :
 	public Piece
 {
-protected:
+private:
+	bool m_aupassant_left_possible = false;
+	bool m_aupassant_right_possible = false;
 
-	std::vector<sf::Vector2u>& GeneratePossibleMovesForWhite(const Board& board);
-	std::vector<sf::Vector2u>& GeneratePossibleMovesForBlack(const Board& board);
-
+	bool m_aupassant_vulnerable = false;
 public:
 
-	Pawn();
+	Pawn(COLOUR colour, const sf::Vector2i& pos, const GraphicsHolder& gh);
 	virtual ~Pawn();
 
-	const std::vector<sf::Vector2u>& GeneratePossibleMoves(const Board& board) override;
+	const std::vector<sf::Vector2i>& GeneratePossibleMoves(const Board& board) override;
 
+	void AupassantIsPossible(bool left, bool right);
+
+	bool IsAupassantVulnerable() { return m_aupassant_vulnerable; }
+	void SetAupassantVulnerable(bool t) { m_aupassant_vulnerable = t; }
 };
+
 

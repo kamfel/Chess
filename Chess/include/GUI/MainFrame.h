@@ -5,10 +5,7 @@ class MainFrame :
 	public CFrameWnd
 {
 protected:
-	void OnSettings();
 	void OnNewGame();
-	void OnLoadGame();
-	void OnSaveGame();
 	void OnExit();
 public:
 	MainFrame();

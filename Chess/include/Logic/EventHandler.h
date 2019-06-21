@@ -2,14 +2,20 @@
 #include "SFML/Window.hpp"
 
 class Game;
+enum COLOUR;
 
 class EventHandler
 {
 private:
+	//window which the event queue is associated with
 	sf::Window& m_window;
+
+	//Currently handled event 
 	sf::Event m_event;
 
-	void HandleMouseButtonPressed(int x, int y);
+	//Called when mouse button is pressed inside the window
+	//return value: true if move was made
+	bool HandleMouseButtonPressed(Board& board, COLOUR player_colour);
 
 public:
 	EventHandler() = delete;
@@ -17,10 +23,8 @@ public:
 
 	~EventHandler();
 
-	void SetWindow(sf::Window& window);
-
-	void Run();
-
-	void HandleEvents();
+	//Handles all events in the event queue
+	//return value: true if move was made
+	bool HandleEvents(Board& board, COLOUR player_colour);
 };
 
