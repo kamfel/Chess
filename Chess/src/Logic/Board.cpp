@@ -1,6 +1,5 @@
 #include "Logic/Pieces/Piece.h"
 #include "Definitions.h"
-#include "Logic/Settings.h"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "Logic/Board.h"
 #include "SFML/Graphics/Sprite.hpp"

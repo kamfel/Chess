@@ -5,37 +5,59 @@
 
 class ResourceStream;
 
+/*! \brief Class for holding textures
+*
+* Provides textures for the game
+*/
 class GraphicsHolder
 {
 private:
-
-	//Text for displaying check, stalemate and checkmate
-	sf::Text m_info;
-
-	//Textures of pieces
-	std::unordered_map<std::string, sf::Texture> m_texture_map;
-
-	//Texture of board
-	sf::Texture m_board_texture;
-
-	//True if textures are loaded successfully
-	bool m_are_loaded;
+	
+	sf::Text m_info; ///< Text for displaying check, stalemate and checkmate
+	
+	std::unordered_map<std::string, sf::Texture> m_texture_map; ///< Textures of pieces
+	
+	sf::Texture m_board_texture; ///< Texture of board
+	 
+	bool m_are_loaded; ///< True if textures are loaded successfully
 
 public:
 
-	//Loads textures from input_stream; returns true if successful
+	/*! \brief Loads piece textures from input_stream
+	*
+	* Textures are expected to be on one picture alligned one by one
+	* \param input_stream Stream from which the textures are loaded
+	* \return true if succesful; false otherwise
+	*/
 	bool LoadTexturesFromStream(ResourceStream& input_stream);
 
-	//Loads board from input_stream; returns true if succesful
+	/*! \brief Loads board texture from input_stream
+	*
+	* \param input_stream Stream from which the texture is loaded
+	* \return true if succesful; false otherwise
+	*/
 	bool LoadBoardTextureFromStream(ResourceStream& input_stream);
 
-	//Returns true if textures are loaded
+	/*! \brief Checks if textures are loaded
+	*
+	* \return true if textures are loaded; false otherwise
+	*/
 	bool AreTexturesLoaded() { return m_are_loaded; }
 
-	//Get texture with name texture_name; name convention "Color_Piecetype" eg. "Black_King"; throws std::out_of_bounds when texture doesn't exist
+	/*! \brief Get piece texture
+	*
+	* Get texture with name texture_name; name convention "Color_Piecetype" eg. "Black_King"
+	*
+	* \exception std::out_of_bounds Throws when texture doesn't exist
+	* \param texture_name Name of the texture
+	* \return Texture of the piece
+	*/
 	const sf::Texture& GetTexture(const std::string& texture_name) const;
 
-	//Get board texture
+	/*! \brief Get board texture
+	*
+	* \return Texture of the board
+	*/
 	const sf::Texture& GetBoardTexture() const;
 
 	GraphicsHolder();

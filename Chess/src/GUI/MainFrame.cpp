@@ -1,6 +1,5 @@
 #include "GUI/MainFrame.h"
 #include "../resource.h"
-#include "GUI/SettingsDialog.h"
 #include <afxwin.h>
 #include "GUI/App.h"
 #include "Definitions.h"

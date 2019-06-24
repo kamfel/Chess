@@ -1,5 +1,4 @@
 #pragma once
-#include "Settings.h"
 #include "Board.h"
 #include <string>
 #include "SFML/Graphics/RenderWindow.hpp"
@@ -7,41 +6,58 @@
 
 enum COLOUR;
 
+/*! \brief Main class of the game
+*
+* Provides methods to interact with the game
+*/
 class Game
 {
 private:
 
-	//Conatiner holding textures for the game
-	GraphicsHolder m_textures;
+	GraphicsHolder m_textures; ///< Conatiner holding textures for the game
 
-	//Window which the game will render to
-	sf::RenderWindow m_main_window;
+	sf::RenderWindow m_main_window; ///< Window which the game will render to
 
-	//Board containing information about the board and pieces
-	Board m_board;
+	Board m_board; ///< Board containing information about the board and pieces
 
-	//The player which has move
-	COLOUR m_has_move;
+	COLOUR m_has_move; ///< The player which has move
 
-	//True if previous move checked the player
-	bool m_is_check;
+	bool m_is_check; ///< True if previous move checked the player
 
-	//Lock game when checkmate or stalemate
-	bool m_is_locked = false;
+	bool m_is_locked = false; ///<Lock game when checkmate or stalemate
 
 public:
+	/*! \brief Constructor
+	*
+	* \exception std::exception May throw if textures weren't loaded properly
+	*
+	* \param wndhandle Handle to window in which the game is played
+	*/
 	Game(sf::WindowHandle& wndhandle);
 	~Game();
 
+	/*! \brief Check if game was finished
+	*
+	* Checks if game was finished by stalemate or checkmate
+	* \return true if game was finished; false otherwise
+	*/
 	bool IsGameFinished() { return m_is_locked; }
 
-	//Starts a new game; previous state is discarded
+	/*! \brief Starts a new game
+	*
+	* Previous game state is discarded
+	*/
 	void StartNewGame();
 
-	//Handles any events in the event queue of the window associated with the game
+	/*! \brief Calls game event handler
+	*
+	* Checks if game was finished by stalemate or checkmate
+	*/
 	void CallEventHandler();
 
-	//Draws chess game to window associated with the game; also flips display buffers
+	/*! \brief Draws chess game to window associated with the game; also flips display buffers
+	*
+	*/
 	void Draw();
 };
 

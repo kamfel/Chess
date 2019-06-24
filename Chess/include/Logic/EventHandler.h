@@ -4,17 +4,25 @@
 class Game;
 enum COLOUR;
 
+/*! \brief Class for handling events
+*
+*/
 class EventHandler
 {
 private:
-	//window which the event queue is associated with
-	sf::Window& m_window;
+	
+	sf::Window& m_window; ///< Window which the event queue is associated with
 
-	//Currently handled event 
-	sf::Event m_event;
+ 
+	sf::Event m_event; ///< Currently handled event
 
-	//Called when mouse button is pressed inside the window
-	//return value: true if move was made
+	/*! \brief Handles mouse button events
+	*
+	* Checks if click was made on the board and then tries to click or move piece
+	* \param board Board which the game is played on
+	* \param player_colour Colour of player clicking
+	* \return true if game can switch to next player; false otherwise
+	*/
 	bool HandleMouseButtonPressed(Board& board, COLOUR player_colour);
 
 public:
@@ -23,8 +31,12 @@ public:
 
 	~EventHandler();
 
-	//Handles all events in the event queue
-	//return value: true if move was made
+	/*! \brief Handles all events in the event queue
+	*
+	* \param board Board which the game is played on
+	* \param player_colour Colour of current player
+	* \return true if game can switch to next player; false otherwise
+	*/
 	bool HandleEvents(Board& board, COLOUR player_colour);
 };
 

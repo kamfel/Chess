@@ -185,7 +185,6 @@
     <ClCompile Include="src\GUI\MainFrame.cpp" />
     <ClCompile Include="src\Logic\ResourceStream.cpp" />
     <ClCompile Include="src\Logic\EventHandler.cpp" />
-    <ClCompile Include="src\Logic\Settings.cpp" />
     <ClCompile Include="src\Logic\Board.cpp" />
     <ClCompile Include="src\Logic\Pieces\Bishop.cpp" />
     <ClCompile Include="src\Logic\Pieces\King.cpp" />
@@ -211,7 +210,6 @@
     <ClInclude Include="include\Logic\Pieces\Pawn.h" />
     <ClInclude Include="include\Logic\Pieces\Queen.h" />
     <ClInclude Include="include\Logic\Pieces\Rook.h" />
-    <ClInclude Include="include\Logic\Settings.h" />
     <ClInclude Include="include\Logic\ResourceStream.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

@@ -36,9 +36,6 @@
     <ClCompile Include="src\Logic\Board.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\Logic\Settings.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="src\Logic\EventHandler.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="include\Logic\Game.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Logic\Settings.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="include\Logic\EventHandler.h">
